@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data - House Price Prediction</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <h1>House Price Prediction</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="prediction.php">Predict Price</a></li>
+            <li><a href="data.html" class="active">Data</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="profile.php">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2>Sample House Price Data</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Bedrooms</th>
+                <th>Bathrooms</th>
+                <th>Square Footage</th>
+                <th>Location</th>
+                <th>Price ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>3</td><td>2</td><td>1500</td><td>Downtown</td><td>350000</td></tr>
+            <tr><td>4</td><td>3</td><td>2000</td><td>Suburb</td><td>450000</td></tr>
+            <tr><td>2</td><td>1</td><td>900</td><td>City Center</td><td>300000</td></tr>
+            <tr><td>5</td><td>4</td><td>3000</td><td>Uptown</td><td>600000</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Price Distribution Chart</h3>
+    <canvas id="priceChart" width="600" height="400"></canvas>
+
+    <script>
+        const ctx = document.getElementById('priceChart').getContext('2d');
+        const priceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Downtown', 'Suburb', 'City Center', 'Uptown'],
+                datasets: [{
+                    label: 'Price ($)',
+                    data: [350000, 450000, 300000, 600000],
+                    backgroundColor: 'rgba(0, 119, 204, 0.7)'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</main>
+<footer>
+    <p>&copy; 2024 House Price Prediction. All rights reserved.</p>
+</footer>
+</body>
+</html>
